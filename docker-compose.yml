@@ -9,7 +9,16 @@ services:
 
   # https://hub.docker.com/r/miveo/centos-php-fpm/
   php:
-    image: miveo/centos-php-fpm:7.2-no-xdebug
+    container_name: ${COMPOSE_PROJECT_NAME}_php
+    image: ${COMPOSE_PROJECT_NAME}_php:${PHP_VERSION}-${DEBIAN_VERSION}
+    build:
+      context: ${PATH_HOST}/php
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+        DEBIAN_VERSION: ${DEBIAN_VERSION}
+        INSTALL_XDEBUG: ${INSTALL_XDEBUG}
+        INSTALL_OPCACHE: ${INSTALL_OPCACHE}
+        INSTALL_COMPOSER: ${INSTALL_COMPOSER}
 
   # https://hub.docker.com/r/kkarczmarczyk/node-yarn/
   yarn:
