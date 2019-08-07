@@ -1,40 +1,40 @@
 version: "3.5"
 
 services:
-    www:
-        command: sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/site.conf && nginx -g 'daemon off;'"
-        environment:
-            - NGINX_HOST=${COMPOSE_PROJECT_NAME}.docker
-        volumes:
-            - source_sync:/var/www/app:nocopy
-            - ./.docker-conf/nginx-dev.conf:/etc/nginx/conf.d/site.template
-    php:
-        working_dir: /var/www/app/
-        env_file: .env
-        volumes:
-            - source_sync:/var/www/app:nocopy
-            - ./.docker-conf/php.ini:/etc/php.d/99-app.ini
-    yarn:
-        working_dir: /var/www/app/
-        command: bash -c "yarn install && yarn watch" # Watch instead of build in dev mode.
-        volumes:
-            - source_sync:/var/www/app:nocopy
-    db:
-        volumes:
-            - pgdata:/var/lib/postgresql/data
+  nginx:
+    command: sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    environment:
+      - NGINX_HOST=${COMPOSE_PROJECT_NAME}.docker
+    volumes:
+      - source_sync:/var/www/app:nocopy
+      - ./docker-conf/nginx-dev.conf:/etc/nginx/conf.d/site.template
+  php:
+    working_dir: /var/www/app/
+    env_file: .env
+    volumes:
+      - source_sync:/var/www/app:nocopy
+      - ./docker-conf/php.ini:/etc/php.d/99-app.ini
+  yarn:
+    working_dir: /var/www/app/
+    command: bash -c "yarn install && yarn watch" # Watch instead of build in dev mode.
+    volumes:
+      - source_sync:/var/www/app:nocopy
+  db:
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
-    # An handy ready-to-use mailcatcher, only in dev.
-    # https://hub.docker.com/r/jderusse/mailcatcher/
-    mailcatcher:
-        image: jderusse/mailcatcher
-        ports:
-            - 8080:80
+  # An handy ready-to-use mailcatcher, only in dev.
+  # https://hub.docker.com/r/jderusse/mailcatcher/
+  mailcatcher:
+    image: jderusse/mailcatcher
+    ports:
+      - 8080:80
 
 volumes:
-    # Handle by docker-sync
-    source_sync:
-        name: ${COMPOSE_PROJECT_NAME}_sync # docker-sync do not use the compose project name by default, so we do.
-        external: true
-    # named local volume to persist postgres data if rebuild container (eg: change postgres version)
-    pgdata:
-        driver: local
+  # Handle by docker-sync
+  source_sync:
+    name: ${COMPOSE_PROJECT_NAME}_sync # docker-sync do not use the compose project name by default, so we do.
+    external: true
+  # named local volume to persist postgres data if rebuild container (eg: change postgres version)
+  pgdata:
+    driver: local
