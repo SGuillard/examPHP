@@ -64,9 +64,6 @@ RUN if [ ${INSTALL_OPCACHE} = true ]; then \
   docker-php-ext-install opcache \
   ;fi
 
-# Copy opcache configration
-COPY ./ini/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
-
 ###########################################################################
 # Composer:                                                           
 ###########################################################################
