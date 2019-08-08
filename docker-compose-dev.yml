@@ -7,18 +7,19 @@ services:
       - NGINX_HOST=${COMPOSE_PROJECT_NAME}.docker
     volumes:
       - source_sync:/var/www/app:nocopy
-      - ./docker-conf/nginx-dev.conf:/etc/nginx/conf.d/site.template
+      - ./nginx/nginx-dev.conf:/etc/nginx/conf.d/site.template
   php:
     working_dir: /var/www/app/
     env_file: .env
     volumes:
       - source_sync:/var/www/app:nocopy
-      - ./docker-conf/php.ini:/usr/local/etc/php/php.ini
+      - ./php/php.ini:/usr/local/etc/php/php.ini
   yarn:
     working_dir: /var/www/app/
     command: bash -c "yarn install && yarn watch" # Watch instead of build in dev mode.
     volumes:
       - source_sync:/var/www/app:nocopy
+
   # db:
   #   volumes:
   #     - pgdata:/var/lib/postgresql/data

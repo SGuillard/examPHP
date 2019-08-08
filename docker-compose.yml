@@ -20,18 +20,29 @@ services:
         INSTALL_OPCACHE: ${INSTALL_OPCACHE}
         INSTALL_COMPOSER: ${INSTALL_COMPOSER}
 
+    ### MySQL Container ###
+  mysql:
+    container_name: test_mysql
+    image: mysql:${MYSQL_VERSION}
+    command: --sql_mode="" --collation-server=utf8mb4_unicode_ci --character-set-server=utf8mb4
+    ports:
+      - 3306:3306
+    volumes:
+      - ${PATH_HOST}/mysql/datas:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
   # https://hub.docker.com/r/kkarczmarczyk/node-yarn/
   yarn:
     image: kkarczmarczyk/node-yarn:8.0-slim
     command: bash -c "yarn install && yarn build"
-
   # https://hub.docker.com/_/postgres/
-  db:
-    image: postgres:9.6-alpine
-    environment:
-      - POSTGRES_USER=${DATABASE_USER}
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - POSTGRES_DB=${DATABASE_NAME}
-      - POSTGRES_PORT=${DATABASE_PORT}
-    ports:
-      - "5432:5432"
+  # db:
+  #   image: postgres:9.6-alpine
+  #   environment:
+  #     - POSTGRES_USER=${DATABASE_USER}
+  #     - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+  #     - POSTGRES_DB=${DATABASE_NAME}
+  #     - POSTGRES_PORT=${DATABASE_PORT}
+  #   ports:
+  #     - "5432:5432"
