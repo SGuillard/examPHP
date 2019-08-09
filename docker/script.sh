@@ -1,6 +1,6 @@
 
 install_dev(){
-    mv .env.dev .env
+    cp .env.dev .env
     docker-sync start
 	docker-compose up -d
 	docker-compose exec php composer self-update --no-interaction
@@ -14,7 +14,7 @@ install_dev(){
 }	
 
 install_prod(){
-    mv .env.prod .env
+    cp .env.prod .env
     docker-compose up -d
 	docker-compose exec php composer self-update --no-interaction
 	docker-compose exec php composer install --no-interaction
