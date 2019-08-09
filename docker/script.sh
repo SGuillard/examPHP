@@ -1,6 +1,7 @@
 
 install_dev(){
     cp .env.dev .env
+    source ~/.bashrc
     docker-sync start
 	docker-compose up -d
 	docker-compose exec php composer self-update --no-interaction
