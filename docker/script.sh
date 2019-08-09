@@ -48,8 +48,16 @@ php_cli(){
     docker-compose exec php bash
 }
 	
-docker_clean(){
+stop_dev(){
+cp .env.dev .env
     docker stop $(docker ps -a -q) | xargs docker rm
+rm .env
+}
+
+stop_prod(){
+cp .env.prod .env
+    docker stop $(docker ps -a -q) | xargs docker rm
+rm .env
 }
 
 "$@"
