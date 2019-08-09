@@ -4,7 +4,6 @@ services:
   nginx:
     volumes:
       - source_sync:/var/www/app:nocopy
-      - ./nginx/nginx-dev.conf:/etc/nginx/conf.d/default.conf
   php:
     working_dir: /var/www/app/
     env_file: .env

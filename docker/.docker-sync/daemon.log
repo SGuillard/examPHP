@@ -1072,3 +1072,21 @@ unison: started
 [2019-08-09 20:29:26 +0200] Sync Log:  [END] Deleting docker/.env copy.prod
 [2019-08-09 20:29:26 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 20:29:25.32 on 09 Aug 2019
 [2019-08-09 20:29:26 +0200] Sync Log:  Synchronization complete at 20:29:25  (1 item transferred, 0 skipped, 0 failed)
+[2019-08-09 20:35:34 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 20:35:34.22 on 09 Aug 2019
+[2019-08-09 20:35:34 +0200] Sync Log:  [BGN] Updating file docker/docker-compose-dev.yml from /host_sync to /app_sync
+[2019-08-09 20:35:34 +0200] Sync Log:  [END] Updating file docker/docker-compose-dev.yml
+[2019-08-09 20:35:34 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 20:35:34.22 on 09 Aug 2019
+[2019-08-09 20:35:34 +0200] Sync Log:  Synchronization complete at 20:35:34  (1 item transferred, 0 skipped, 0 failed)
+[2019-08-09 20:35:46 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 20:35:46.38 on 09 Aug 2019
+[2019-08-09 20:35:46 +0200] Sync Log:  [BGN] Updating file docker/docker-compose.yml from /host_sync to /app_sync
+[2019-08-09 20:35:46 +0200] Sync Log:  [END] Updating file docker/docker-compose.yml
+[2019-08-09 20:35:46 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 20:35:46.38 on 09 Aug 2019
+[2019-08-09 20:35:46 +0200] Sync Log:  Synchronization complete at 20:35:46  (1 item transferred, 0 skipped, 0 failed)
+[2019-08-09 20:36:14 +0200] Sync Log:  Synchronization complete at 20:36:14  (0 item transferred, 1 skipped, 0 failed)
+[2019-08-09 20:36:14 +0200] Sync Log:    skipped: docker/.gitignore.swp (Error in digesting /host_sync/docker/.gitignore.swp:
+[2019-08-09 20:36:14 +0200] Sync Log:  /host_sync/docker/.gitignore.swp: No such file or directory)
+[2019-08-09 20:36:22 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 20:36:22.57 on 09 Aug 2019
+[2019-08-09 20:36:22 +0200] Sync Log:  [BGN] Copying docker/.gitignore.swp from /host_sync to /app_sync
+[2019-08-09 20:36:22 +0200] Sync Log:  [END] Copying docker/.gitignore.swp
+[2019-08-09 20:36:22 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 20:36:22.57 on 09 Aug 2019
+[2019-08-09 20:36:22 +0200] Sync Log:  Synchronization complete at 20:36:22  (1 item transferred, 0 skipped, 0 failed)
