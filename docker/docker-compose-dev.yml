@@ -2,12 +2,9 @@ version: "3.5"
 
 services:
   nginx:
-    command: sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
-    environment:
-      - NGINX_HOST=${COMPOSE_PROJECT_NAME}.docker
     volumes:
       - source_sync:/var/www/app:nocopy
-      - ./nginx/nginx-dev.conf:/etc/nginx/conf.d/site.template
+      - ./nginx/nginx-dev.conf:/etc/nginx/conf.d/default.conf
   php:
     working_dir: /var/www/app/
     env_file: .env
