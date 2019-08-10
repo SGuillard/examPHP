@@ -1,5 +1,5 @@
 
-install_dev(){
+start_dev(){
     cp .env.dev .env
     source ~/.bashrc
     docker-sync start
@@ -14,7 +14,7 @@ install_dev(){
     rm .env
 }	
 
-install_prod(){
+start_prod(){
     cp .env.prod .env
     docker-compose up -d
 	docker-compose exec php composer self-update --no-interaction
