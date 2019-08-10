@@ -17,12 +17,12 @@ start_dev(){
 start_prod(){
     cp .env.prod .env
     docker-compose up -d
-	docker-compose exec php composer self-update --no-interaction
-	docker-compose exec php composer install --no-interaction
-	docker-compose exec php bin/console doctrine:migration:migrate --allow-no-migration --no-interaction
-	docker-compose exec php bin/console assets:install --symlink --relative
-	docker-compose exec php rm -Rf var/cache
-	docker-compose exec php chmod -R 777 var
+	# docker-compose exec php composer self-update --no-interaction
+	# docker-compose exec php composer install --no-interaction
+	# docker-compose exec php bin/console doctrine:migration:migrate --allow-no-migration --no-interaction
+	# docker-compose exec php bin/console assets:install --symlink --relative
+	# docker-compose exec php rm -Rf var/cache
+	# docker-compose exec php chmod -R 777 var
     rm .env
 }
 
