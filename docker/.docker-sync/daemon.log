@@ -1196,3 +1196,32 @@ unison: started
 [2019-08-12 15:12:17 +0200] Sync Log:  [END] Copying docker/.gitignore.swp
 [2019-08-12 15:12:17 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 15:12:17.12 on 12 Aug 2019
 [2019-08-12 15:12:17 +0200] Sync Log:  Synchronization complete at 15:12:17  (1 item transferred, 0 skipped, 0 failed)
+          ok  Starting native_osx for sync myapp_sync
+          ok  myapp_sync container still running, restarting unison in container
+     command  docker exec myapp_sync supervisorctl restart unison
+unison: stopped
+unison: started
+          ok  starting initial sync of myapp_sync
+     success  Sync container started
+     success  Showing unison logs from your sync container: myapp_sync
+[2019-08-12 15:15:40 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 15:15:39.44 on 12 Aug 2019
+[2019-08-12 15:15:40 +0200] Sync Log:  [BGN] Updating file docker/mysql/datas/ib_logfile0 from /host_sync to /app_sync
+[2019-08-12 15:15:41 +0200] Sync Log:  Failed: The source file /host_sync/docker/mysql/datas/ib_logfile0
+[2019-08-12 15:15:41 +0200] Sync Log:  has been modified during synchronization.  Transfer aborted.
+[2019-08-12 15:15:41 +0200] Sync Log:  [BGN] Updating file docker/mysql/datas/ibdata1 from /host_sync to /app_sync
+[2019-08-12 15:15:42 +0200] Sync Log:  [END] Updating file docker/mysql/datas/ibdata1
+[2019-08-12 15:15:42 +0200] Sync Log:  [BGN] Updating file docker/mysql/datas/ibtmp1 from /host_sync to /app_sync
+[2019-08-12 15:15:42 +0200] Sync Log:  [END] Updating file docker/mysql/datas/ibtmp1
+[2019-08-12 15:15:42 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 15:15:41.64 on 12 Aug 2019
+[2019-08-12 15:15:42 +0200] Sync Log:  Synchronization incomplete at 15:15:41  (2 items transferred, 0 skipped, 1 failed)
+[2019-08-12 15:15:42 +0200] Sync Log:    failed: docker/mysql/datas/ib_logfile0
+[2019-08-12 15:15:43 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 15:15:43.03 on 12 Aug 2019
+[2019-08-12 15:15:43 +0200] Sync Log:  [BGN] Updating file docker/mysql/datas/ib_logfile0 from /host_sync to /app_sync
+[2019-08-12 15:15:44 +0200] Sync Log:  [END] Updating file docker/mysql/datas/ib_logfile0
+[2019-08-12 15:15:44 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 15:15:43.74 on 12 Aug 2019
+[2019-08-12 15:15:44 +0200] Sync Log:  Synchronization complete at 15:15:43  (1 item transferred, 0 skipped, 0 failed)
+[2019-08-12 15:16:23 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) started propagating changes at 15:16:22.14 on 12 Aug 2019
+[2019-08-12 15:16:23 +0200] Sync Log:  [BGN] Deleting docker/.gitignore.swp from /app_sync
+[2019-08-12 15:16:23 +0200] Sync Log:  [END] Deleting docker/.gitignore.swp
+[2019-08-12 15:16:23 +0200] Sync Log:  UNISON 2.51.2 (OCAML 4.06.1) finished propagating changes at 15:16:22.14 on 12 Aug 2019
+[2019-08-12 15:16:23 +0200] Sync Log:  Synchronization complete at 15:16:22  (1 item transferred, 0 skipped, 0 failed)
