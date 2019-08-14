@@ -7,7 +7,7 @@
     "start": "nodemon server.js localhost 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Sylvain Guillard",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
