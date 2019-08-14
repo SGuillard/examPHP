@@ -24,7 +24,7 @@ services:
 
     ### MySQL Container ###
   mysql:
-    container_name: test_mysql
+    container_name: ${COMPOSE_PROJECT_NAME}_mysql
     image: mysql:${MYSQL_VERSION}
     command: --sql_mode="" --collation-server=utf8mb4_unicode_ci --character-set-server=utf8mb4
     ports:
@@ -34,17 +34,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
 
-  # https://hub.docker.com/r/kkarczmarczyk/node-yarn/
-  yarn:
-    image: kkarczmarczyk/node-yarn:8.0-slim
-    command: bash -c "yarn install && yarn build"
-  # https://hub.docker.com/_/postgres/
-  # db:
-  #   image: postgres:9.6-alpine
-  #   environment:
-  #     - POSTGRES_USER=${DATABASE_USER}
-  #     - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-  #     - POSTGRES_DB=${DATABASE_NAME}
-  #     - POSTGRES_PORT=${DATABASE_PORT}
-  #   ports:
-  #     - "5432:5432"
+    ### Node Container ###
+  ### Node Container ###
+  node:
+    container_name: ${COMPOSE_PROJECT_NAME}_node
+    build:
+      context: ${PATH_HOST}/node
+    volumes:
+      - ../node:/app
+    ports:
+      - "3000:3000"
+    # command: sh -c 'npm install && npm start && exit && echo "ok"'

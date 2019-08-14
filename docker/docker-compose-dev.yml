@@ -10,28 +10,9 @@ services:
     volumes:
       - source_sync:/var/www/app:nocopy
       - ./php/php.ini:/usr/local/etc/php/php.ini
-  yarn:
-    working_dir: /var/www/app/
-    command: bash -c "yarn install && yarn watch" # Watch instead of build in dev mode.
-    volumes:
-      - source_sync:/var/www/app:nocopy
-
-  # db:
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
-
-  # An handy ready-to-use mailcatcher, only in dev.
-  # https://hub.docker.com/r/jderusse/mailcatcher/
-  mailcatcher:
-    image: jderusse/mailcatcher
-    ports:
-      - 8080:80
 
 volumes:
   # Handle by docker-sync
   source_sync:
     name: ${COMPOSE_PROJECT_NAME}_sync # docker-sync do not use the compose project name by default, so we do.
     external: true
-  # named local volume to persist postgres data if rebuild container (eg: change postgres version)
-  # pgdata:
-  #   driver: local
